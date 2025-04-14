@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>VOCA 모의고사</title>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="optimized-version1-css.css">
+</head>
+<body>
+  <div class="app-container">
+    <header class="app-header">
+      <div class="header-content">
+        <div class="app-logo">
+          <h1>TOEFL</h1>
+        </div>
+        <div class="app-title">
+          <h2>토플단어 DAY<span id="day-number"></span></h2>
+        </div>
+        <div class="timer-display">
+          <span id="timer">00:00</span>
+        </div>
+      </div>
+    </header>
+    
+    <div class="divider"></div>
+    
+    <section class="instructions">
+      <div class="instructions-content">
+        <h3>들려주는 단어와 품사, 뜻을 입력하세요.</h3>
+        <p id="progress-status">1 회 째에 시작합니다.</p>
+      </div>
+    </section>
+    
+    <main class="main-content">
+      <div id="exam-section">
+        <div id="word-container">
+          <table id="word-table">
+            <colgroup>
+              <col style="width:5%">
+              <col style="width:30%">
+              <col style="width:25%">
+              <col style="width:40%">
+            </colgroup>
+            <tbody id="word-list"></tbody>
+          </table>
+        </div>
+        <div class="action-bar">
+          <button id="submit-btn" class="btn primary">제출하기</button>
+        </div>
+      </div>
+    </main>
+    
+    <!-- Results Modal -->
+    <div id="results-modal" class="modal">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h2>시험 결과</h2>
+          <span class="close-btn">&times;</span>
+        </div>
+        <div class="modal-body">
+          <div class="result-summary">
+            <h3>정답률: <span id="score-percentage">0</span>%</h3>
+            <p>맞은 개수: <span id="correct-count">0</span>/<span id="total-count">0</span></p>
+            <p>소요 시간: <span id="elapsed-time">00:00</span></p>
+          </div>
+          <div class="result-details">
+            <table id="results-table">
+              <thead>
+                <tr>
+                  <th>번호</th>
+                  <th>단어</th>
+                  <th>품사</th>
+                  <th>뜻</th>
+                  <th>결과</th>
+                </tr>
+              </thead>
+              <tbody id="results-list"></tbody>
+            </table>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button id="retry-btn" class="btn secondary">다시 시작하기</button>
+          <button id="export-btn" class="btn primary">결과 내보내기</button>
+        </div>
+      </div>
+    </div>
+    
+    <!-- Load Words Modal -->
+    <div id="load-modal" class="modal">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h2>단어 목록 불러오기</h2>
+          <span class="close-btn load-close">&times;</span>
+        </div>
+        <div class="modal-body">
+          <div class="upload-section">
+            <p>CSV 파일을 업로드하세요. (Word,Part of Speech,Meaning 형식)</p>
+            <p>여러 품사를 가진 단어는 품사와 뜻을 세미콜론(;)으로 구분해주세요.</p>
+            <p>예: brace,v;n,버티다, 떠받치다;버팀대</p>
+            <input type="file" id="file-input" accept=".csv,.txt">
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  <script src="final-complete-fix-js.js"></script>
+</body>
+</html>
